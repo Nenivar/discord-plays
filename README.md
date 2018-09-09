@@ -1,6 +1,9 @@
 # discord-plays
 Uses https://github.com/meew0/discordrb.
 
+Requires:
+* xdotool
+
 Store token in auth.json:
 ```json
 {
