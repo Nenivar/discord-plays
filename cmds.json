@@ -6,5 +6,6 @@
     "a" : "x",
     "b" : "z",
     "start" : "Return",
-    "select" : "BackSpace"
+    "select" : "BackSpace",
+    "screenshot" : "s"
 }

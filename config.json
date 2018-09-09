@@ -1,3 +1,5 @@
 {
-    "Window_Name" : "Pokemon"
+    "Window_Name" : "Pokemon",
+    "Screenshot_Loc" : "./screenshots",
+    "Screenshot_Name" : "screenshot"
 }
