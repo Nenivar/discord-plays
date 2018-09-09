@@ -1,0 +1,10 @@
+{
+    "up" : "Up",
+    "down" : "Down",
+    "left" : "Left",
+    "right" : "Right",
+    "a" : "x",
+    "b" : "z",
+    "start" : "Return",
+    "select" : "BackSpace"
+}
