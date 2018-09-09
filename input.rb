@@ -4,7 +4,7 @@ include Config
 # runs cmd w/ xdotool on shell
 # & returns
 def xdotoolCmd(args)
-    puts args
+    #puts args
     `xdotool #{args}`
 end
 
@@ -20,9 +20,14 @@ def searchWindowId(window_name)
     xdotoolCmd('search --name ' + window_name)
 end
 
+# makes window w/ id active
+def makeWindowActive(window_id)
+    xdotoolCmd('windowactivate ' + window_id)
+end
+
 # returns window id of VBAM if it is open
 def getVBAMWindowId()
-    windowId = searchWindowId('"Pokemon"').chomp
+    windowId = searchWindowId(Config.getConfigVal('Window_Name')).chomp
     raise 'VBAM not open!' if windowId == ''
     return windowId
 end
@@ -46,4 +51,5 @@ def putCmdIntoVBAM(cmd)
     pressSysKey(key, '--window ' + windowId + ' ')
 end
 
-puts Config.getConfigVal('Window_Name')
+#makeWindowActive(getVBAMWindowId)
+#putCmdIntoVBAM('a')

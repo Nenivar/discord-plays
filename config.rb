@@ -4,7 +4,7 @@ module Config
     @config = JSON.parse(json)
 
     def getConfigVal(key)
-        val = @config['key']
+        val = @config[key]
         raise 'No config value for ' + key + '!'  if val == nil
         return val
     end
