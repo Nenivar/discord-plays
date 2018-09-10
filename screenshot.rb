@@ -13,11 +13,25 @@ module Screenshot
     end
 
     def incrScreenshotCount
+        syncScreenshotCount if @currentSc % Config.getConfigVal('Screenshot_Limit') == 0
         @currentSc += 1
     end
 
     def resetScreenshotCount
         @currentSc = 1
+    end
+
+    def syncScreenshotCount
+        @currentSc = findBiggestImageNo
+        deletePreviousImages()
+    end
+
+    def findBiggestImageNo()
+        d = Dir.open(Config.getConfigVal('Screenshot_Loc'))
+        biggest =  d.max
+        biggest = biggest.sub(Config.getConfigVal('Screenshot_Name'), '')
+        biggest = biggest.sub('.png', '')
+        return biggest.to_i
     end
 
     # (relative) file path to an image

@@ -13,6 +13,7 @@ apt-get install xdotool
 https://code.launchpad.net/%7Esergio-br2/+archive/ubuntu/vbam-trunk
 ```
 
+# Running
 Store token in auth.json:
 ```json
 {
@@ -22,22 +23,27 @@ Store token in auth.json:
 ```
 Change stuff in config.json
 
-Load (legally obtained) ROM -> VBA-M
 Change keybinds in VBA-M to what is in config
 Make VBA-M load newest save on startup
 
 ```
 bundle exec ruby ping.rb
 ```
+or
+```
+chmod +x /start.sh
+./start.sh
+```
 
 ## Todo
 * [ ] More error handling/messages
-* [ ] Delete screenshots automatically
-* [ ] Detect next screenshot no. automatically
+* [x] Delete screenshots automatically
+* [x] Detect next screenshot no. automatically
 * [ ] Better method for detecting window
 * [ ] General json module (singleton class?)
 * [ ] Auto start/shutdown after time
 * [ ] Saving states
+* [ ] Rate limiting
 
 
 * [ ] Record gif & send?

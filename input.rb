@@ -5,18 +5,13 @@ module Input
     # runs cmd w/ xdotool on shell
     # & returns
     def xdotoolCmd(args)
-        #puts args
         `xdotool #{args}`
-        #spawn("xdotool #{args}")
     end
 
     # makes system press given key name
     # thruogh xdotool
     def pressSysKey(key_name, args='')
-        #xdotoolCmd('key ' + args + key_name)
-        xdotoolCmd('keydown ' + args + key_name)
-        sleep(0.1)
-        xdotoolCmd('keyup ' + args + key_name)
+        xdotoolCmd('key ' + args + key_name)
     end
 
     # returns search of window w/ name
@@ -53,7 +48,7 @@ module Input
     def putCmdIntoVBAM(cmd)
         key = getKeyForCmd(cmd)
         windowId = getVBAMWindowId
-        makeWindowActive(windowId)
+        #makeWindowActive(windowId)
         pressSysKey(key, '--window ' + windowId + ' --delay 100 ')
     end
 end

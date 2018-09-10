@@ -24,7 +24,7 @@ bot.message(start_with: ';pokemon') do |event|
     if args != 'begin'
       if args == ';pokemon'
         # error msg - print appropriate strings
-        #sendSS(event)
+        sendSS(event)
       elsif args == 'help'
         event.respond 'Use ";pokemon a | b | up | down | left | right | start | select"!'
       elsif args == 'save'
@@ -45,6 +45,7 @@ bot.message(start_with: ';pokemon') do |event|
   else
     if args == 'begin'
       beginGame
+      event.respond 'Started game!'
     else
       puts 'Tried to use command ' + args + ' but game is not open!'
       event.respond 'Use ";pokemon begin" to open up the game!'
@@ -71,11 +72,11 @@ end
 
 def sendSS(event)
   Screenshot.takeScreenshot
-    file = Screenshot.getLatestScreenshot
-    event.send_file(file)
-    sleep(0.5)
-    #file.close()
-    Screenshot.incrScreenshotCount
+  sleep(0.1)
+  file = Screenshot.getLatestScreenshot
+  event.send_file(file)
+  file.close()
+  Screenshot.incrScreenshotCount
 end
 
 # connect bot to discord
