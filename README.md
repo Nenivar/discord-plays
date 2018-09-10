@@ -1,5 +1,5 @@
 # discord-plays
-Uses https://github.com/meew0/discordrb.
+Play pokemon over discord with commands
 
 # Installation
 Requires:
@@ -28,6 +28,7 @@ bundle exec ruby ping.rb
 * Record gif & send?
 * More error handling/messages
 * Delete screenshots automatically
+* Detect next screenshot no. automatically
 * Better method for detecting window
 * General json module (singleton class?)
 * Link to discord
@@ -43,5 +44,6 @@ I wanted to learn the language
 Please tell me, I have no idea what I'm doing
 
 ## Credit
-Inspiration: https://github.com/TheBlackParrot/discord-plays-pokemon/
+Inspiration: https://github.com/TheBlackParrot/discord-plays-pokemon
+Discord integration: https://github.com/meew0/discordrb/
 Support: Rowan
