@@ -38,7 +38,7 @@ bot.command([:up, :down, :left, :right, :a, :b, :start, :select], bucket: :gener
 end
 
 # admin commands
-bot.command(:begin) do |event|
+bot.command(:begin, required_permissions: [:administrator]) do |event|
   if VisualBoy.isPlaying
     puts 'Tried to use command ' + args + ' but game is already open!'
     'Game is already open!'
@@ -48,7 +48,7 @@ bot.command(:begin) do |event|
   end
 end
 
-bot.command(:exit) do |event|
+bot.command(:exit, required_permissions: [:administrator]) do |event|
   if VisualBoy.isPlaying
     endGame
     'Exiting game...'
@@ -57,7 +57,7 @@ bot.command(:exit) do |event|
   end
 end
 
-bot.command(:restart) do |event|
+bot.command(:restart, required_permissions: [:administrator]) do |event|
   if VisualBoy.isPlaying
     restartGame
     'Restarting game...'

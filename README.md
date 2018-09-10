@@ -44,7 +44,8 @@ chmod +x /start.sh
 * [ ] Auto start/shutdown after time
 * [ ] Saving states
 * [x] Rate limiting
-* [ ] Permission levels
+* [ ] PM user rate limit msg
+* [x] Permission levels
 
 
 * [ ] Record gif & send?
