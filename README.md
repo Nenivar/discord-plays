@@ -36,19 +36,21 @@ chmod +x /start.sh
 ```
 
 ## Todo
-* [ ] More error handling/messages
+### Required
+* [ ] Saving states
+* [x] Rate limiting
+* [x] Permission levels
+### Should
 * [x] Delete screenshots automatically
 * [x] Detect next screenshot no. automatically
+* [ ] Delete save states automatically
+* [ ] More error handling/messages
 * [ ] Better method for detecting window
 * [ ] General json module (singleton class?)
 * [ ] Auto start/shutdown after time
-* [ ] Saving states
-* [x] Rate limiting
 * [ ] PM user rate limit msg
-* [x] Permission levels
-
-
-* [ ] Record gif & send?
+### Stretch
+* [ ] Record gif & send? Experiment
 * [ ] Democracy mode
 * [ ] Drawing over image
 * [ ] Play music in discord channel
