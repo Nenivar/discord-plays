@@ -13,6 +13,7 @@ GEM
       unf (>= 0.0.5, < 1.0.0)
     event_emitter (0.2.6)
     ffi (1.9.25)
+    hitimes (1.3.0)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     json (1.8.3)
@@ -28,6 +29,8 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
+    timers (4.1.2)
+      hitimes
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.5)
@@ -42,6 +45,7 @@ PLATFORMS
 DEPENDENCIES
   discordrb
   json
+  timers
 
 BUNDLED WITH
    1.16.4

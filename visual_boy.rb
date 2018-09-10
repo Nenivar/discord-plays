@@ -25,7 +25,9 @@ module VisualBoy
     end
 
     def saveState()
-        puts 'Saving state...'
-        Input.putCmdIntoVBAM('save')
+        if isPlaying
+            puts 'Saving state...'
+            Input.putCmdIntoVBAM('save')
+        end
     end
 end

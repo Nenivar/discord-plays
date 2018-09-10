@@ -18,7 +18,7 @@ include VisualBoy
 bot = Discordrb::Commands::CommandBot.new token: bot_token, prefix: Config.getConfigVal('Discord_Cmd_Name')
 
 # bucket for rate limiting
-bot.bucket :general, limit: 6, time_span: 60, delay: 1
+bot.bucket :general, limit: 12, time_span: 60, delay: 5
 
 bot.command(:help) do |event|
   'Use ";pokemon a | b | up | down | left | right | start | select"!'
@@ -29,7 +29,7 @@ bot.command([:up, :down, :left, :right, :a, :b, :start, :select], bucket: :gener
   if VisualBoy.isPlaying
     input = event.command.name
     Input.putCmdIntoVBAM(input.to_s)
-    sleep(0.7)
+    sleep(0.9)
     sendSS(event)
     nil
   else

@@ -37,7 +37,7 @@ chmod +x /start.sh
 
 ## Todo
 ### Required
-* [ ] Saving states
+* [x] Saving states
 * [x] Rate limiting
 * [x] Permission levels
 ### Should
