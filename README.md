@@ -23,6 +23,8 @@ Store token in auth.json:
 Change stuff in config.json
 
 Load (legally obtained) ROM -> VBA-M
+Change keybinds in VBA-M to what is in config
+Make VBA-M load newest save on startup
 
 ```
 bundle exec ruby ping.rb
@@ -49,7 +51,7 @@ I wanted to learn the language
 ## Feedback/your code sucks
 Please tell me, I have no idea what I'm doing
 
-## Credit
-Inspiration: https://github.com/TheBlackParrot/discord-plays-pokemon
-Discord integration: https://github.com/meew0/discordrb/
-Support: Rowan
+## Thanks
+* Inspiration: https://github.com/TheBlackParrot/discord-plays-pokemon
+* Discord integration: https://github.com/meew0/discordrb/
+* Support: Rowan

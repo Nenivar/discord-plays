@@ -8,5 +8,6 @@
     "start" : "Return",
     "select" : "BackSpace",
     "screenshot" : "s",
-    "exit" : "Escape"
+    "exit" : "Escape",
+    "save" : "ctrl+k"
 }

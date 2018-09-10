@@ -4,21 +4,28 @@ require_relative 'input'
 include Input
 
 module VisualBoy
-    playing = false
+    @playing = false
 
     def start(rom_path)
         pid = spawn("visualboyadvance-m #{rom_path} </dev/null &>/dev/null &")
         Process.detach(pid)
 
-        playing = true
+        @playing = true
     end
 
     def exit
         puts 'Exiting VBA-M...'
         Input.putCmdIntoVBAM('exit')
+
+        @playing = false
     end
 
     def isPlaying
-        return playing
+        return @playing
+    end
+
+    def saveState()
+        puts 'Saving state...'
+        Input.putCmdIntoVBAM('save')
     end
 end

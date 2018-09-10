@@ -12,8 +12,12 @@ module Screenshot
         Input.putCmdIntoVBAM('screenshot')
     end
 
-    def increaseScreenshotNo
+    def incrScreenshotCount
         @currentSc += 1
+    end
+
+    def resetScreenshotCount
+        @currentSc = 1
     end
 
     # (relative) file path to an image
