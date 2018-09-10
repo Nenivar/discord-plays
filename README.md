@@ -8,6 +8,10 @@ Requires:
 ```
 apt-get install xdotool
 ```
+* VisualBoyAdvance-M
+```
+https://code.launchpad.net/%7Esergio-br2/+archive/ubuntu/vbam-trunk
+```
 
 Store token in auth.json:
 ```json
@@ -25,17 +29,19 @@ bundle exec ruby ping.rb
 ```
 
 ## Todo
-* Record gif & send?
-* More error handling/messages
-* Delete screenshots automatically
-* Detect next screenshot no. automatically
-* Better method for detecting window
-* General json module (singleton class?)
-* Link to discord
-* Auto start/shutdown after time
+* [ ] More error handling/messages
+* [ ] Delete screenshots automatically
+* [ ] Detect next screenshot no. automatically
+* [ ] Better method for detecting window
+* [ ] General json module (singleton class?)
+* [ ] Auto start/shutdown after time
+* [ ] Saving states
 
-* Democracy mode
-* Drawing over image
+
+* [ ] Record gif & send?
+* [ ] Democracy mode
+* [ ] Drawing over image
+* [ ] Play music in discord channel
 
 ## Why did you do this in Ruby?
 I wanted to learn the language

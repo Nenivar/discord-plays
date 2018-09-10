@@ -7,5 +7,6 @@
     "b" : "z",
     "start" : "Return",
     "select" : "BackSpace",
-    "screenshot" : "s"
+    "screenshot" : "s",
+    "exit" : "Escape"
 }

@@ -34,7 +34,7 @@ module Input
     end
 
     require 'json'
-    json = File.read('cmds.json')
+    json = File.read('data/cmds.json')
     @cmds = JSON.parse(json)
 
     # gets xdotool key for given string cmd
@@ -49,6 +49,7 @@ module Input
     def putCmdIntoVBAM(cmd)
         key = getKeyForCmd(cmd)
         windowId = getVBAMWindowId
-        pressSysKey(key, '--window ' + windowId + ' --delay 40 ')
+        #makeWindowActive(windowId)
+        pressSysKey(key, '--window ' + windowId + ' --delay 100 ')
     end
 end
