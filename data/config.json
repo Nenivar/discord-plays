@@ -3,7 +3,7 @@
     "Screenshot_Loc" : "./screenshots",
     "Screenshot_Name" : "pokemon_blue",
     "Screenshot_Limit" : 5,
-    "Discord_Cmd_Name" : ";pokemon",
+    "Discord_Cmd_Name" : ";pokemon ",
     "ROM_Loc" : "./rom",
     "ROM_Name" : "pokemon_blue.gb"
 }

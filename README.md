@@ -43,7 +43,8 @@ chmod +x /start.sh
 * [ ] General json module (singleton class?)
 * [ ] Auto start/shutdown after time
 * [ ] Saving states
-* [ ] Rate limiting
+* [x] Rate limiting
+* [ ] Permission levels
 
 
 * [ ] Record gif & send?

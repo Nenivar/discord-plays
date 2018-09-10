@@ -15,41 +15,54 @@ include Screenshot
 require_relative 'visual_boy'
 include VisualBoy
 
-bot = Discordrb::Bot.new token: bot_token
+bot = Discordrb::Commands::CommandBot.new token: bot_token, prefix: Config.getConfigVal('Discord_Cmd_Name')
 
-bot.message(start_with: ';pokemon') do |event|
-  args = event.message.content.sub(';pokemon ', '').chomp(' ')
+# bucket for rate limiting
+bot.bucket :general, limit: 6, time_span: 60, delay: 1
 
+bot.command(:help) do |event|
+  'Use ";pokemon a | b | up | down | left | right | start | select"!'
+end
+
+# VBA-M commands
+bot.command([:up, :down, :left, :right, :a, :b, :start, :select], bucket: :general, rate_limit_message: 'You can control next in %time% seconds!') do |event|
   if VisualBoy.isPlaying
-    if args != 'begin'
-      if args == ';pokemon'
-        # error msg - print appropriate strings
-        sendSS(event)
-      elsif args == 'help'
-        event.respond 'Use ";pokemon a | b | up | down | left | right | start | select"!'
-      elsif args == 'save'
-        VisualBoy.saveState
-      elsif args == 'exit'
-        endGame
-      elsif args == 'restart'
-        restartGame
-      else
-        puts args
-        Input.putCmdIntoVBAM(args)
-        sleep(0.8)
-        sendSS(event)
-      end
-    else
-      puts 'Tried to use command ' + args + ' but game is already open!'
-    end
+    input = event.command.name
+    Input.putCmdIntoVBAM(input.to_s)
+    sleep(0.7)
+    sendSS(event)
+    nil
   else
-    if args == 'begin'
-      beginGame
-      event.respond 'Started game!'
-    else
-      puts 'Tried to use command ' + args + ' but game is not open!'
-      event.respond 'Use ";pokemon begin" to open up the game!'
-    end
+    'VBA-M is not open! Use ";pokemon begin"'
+  end
+end
+
+# admin commands
+bot.command(:begin) do |event|
+  if VisualBoy.isPlaying
+    puts 'Tried to use command ' + args + ' but game is already open!'
+    'Game is already open!'
+  else
+    beginGame
+    'Started game!'
+  end
+end
+
+bot.command(:exit) do |event|
+  if VisualBoy.isPlaying
+    endGame
+    'Exiting game...'
+  else
+    'Game is not open!'
+  end
+end
+
+bot.command(:restart) do |event|
+  if VisualBoy.isPlaying
+    restartGame
+    'Restarting game...'
+  else
+    'Game is not open!'
   end
 end
 
@@ -66,7 +79,7 @@ end
 
 def restartGame
   endGame
-  sleep(10)
+  sleep(5)
   beginGame
 end
 
