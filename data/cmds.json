@@ -9,5 +9,5 @@
     "select" : "BackSpace",
     "screenshot" : "s",
     "exit" : "Escape",
-    "save" : "ctrl+k"
+    "save" : "k"
 }
