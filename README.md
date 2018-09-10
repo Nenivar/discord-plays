@@ -25,10 +25,16 @@ bundle exec ruby ping.rb
 ```
 
 ## Todo
+* Record gif & send?
+* More error handling/messages
 * Delete screenshots automatically
 * Better method for detecting window
 * General json module (singleton class?)
 * Link to discord
+* Auto start/shutdown after time
+
+* Democracy mode
+* Drawing over image
 
 ## Why did you do this in Ruby?
 I wanted to learn the language

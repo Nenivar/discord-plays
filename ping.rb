@@ -8,6 +8,14 @@ bot_token = obj['Bot_Token']
 
 require 'discordrb'
 
+require_relative 'input'
+include Input
+require_relative 'screenshot'
+include Screenshot
+
+# setup
+Screenshot.deletePreviousImages
+
 # This simple bot responds to every "Ping!" message with a "Pong!"
 # This statement creates a bot with the specified token and application ID. After this line, you can add events to the
 # created bot, and eventually run it.
@@ -20,6 +28,8 @@ require 'discordrb'
 # respective place.
 bot = Discordrb::Bot.new token: bot_token
 
+
+
 # Here we output the invite URL to the console so the bot account can be invited to the channel. This only has to be
 # done once, afterwards, you can remove this part if you want
 #puts "This bot's invite URL is #{bot.invite_url}."
@@ -29,6 +39,40 @@ bot = Discordrb::Bot.new token: bot_token
 # The code inside it will be executed, and a "Pong!" response will be sent to the channel.
 bot.message(content: 'Ping!') do |event|
   event.respond 'Pong!'
+end
+
+bot.message(content: 'Image!') do |event|
+  event.respond 'Pong!'
+  # temporary?
+  file = Screenshot.getLatestScreenshot
+  event.send_file(file)
+  # add wait?
+  file.close
+end
+
+bot.message(start_with: ';pokemon') do |event|
+  args = event.message.content.sub(';pokemon ', '').chomp(' ')
+
+  #event.channel.prune(100)
+
+  if args == ';pokemon'
+    # error msg - print appropriate strings
+    #event.respond 'Use ";pokemon a | b | up | down | left | right | start | select"!'
+  else
+    puts args
+    Input.putCmdIntoVBAM(args)
+    sleep(2)
+    sendSS(event)
+  end
+end
+
+def sendSS(event)
+  Screenshot.takeScreenshot
+    file = Screenshot.getLatestScreenshot
+    event.send_file(file)
+    sleep(0.1)
+    file.close()
+    Screenshot.increaseScreenshotNo
 end
 
 # This method call has to be put at the end of your script, it is what makes the bot actually connect to Discord. If you

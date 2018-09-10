@@ -1,5 +1,6 @@
 {
-    "Window_Name" : "Pokemon",
+    "Window_Name" : "pokemon_blue",
     "Screenshot_Loc" : "./screenshots",
-    "Screenshot_Name" : "screenshot"
+    "Screenshot_Name" : "pokemon_blue",
+    "Discord_Cmd_Name" : ";pokemon"
 }

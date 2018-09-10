@@ -12,9 +12,13 @@ module Screenshot
         Input.putCmdIntoVBAM('screenshot')
     end
 
+    def increaseScreenshotNo
+        @currentSc += 1
+    end
+
     # (relative) file path to an image
     def getImagePath(image_name)
-        Config.getConfigVal('Screenshot_Loc') + '/' + name
+        Config.getConfigVal('Screenshot_Loc') + '/' + image_name
     end
 
     # so it is 01 -> 09, 10, 11...
@@ -22,9 +26,15 @@ module Screenshot
         @currentSc > 9 ? '' : '0'
     end
 
-    # returns latest taken screenshot
+    # path of latest taken screenshot
+    def getLatestScreenshotPath
+        return getImagePath(Config.getConfigVal('Screenshot_Name') + getLatestScreenshotPrefix + @currentSc.to_s + '.png')
+    end
+
+    # file of latest taken screenshot
+    # remember to close after!
     def getLatestScreenshot
-        File.open(getImagePath(Config.getConfigVal('Screenshot_Name') + getLatestScreenshotPrefix + @currentSc, 'r'))
+        File.open(getLatestScreenshotPath, 'r')
     end
     
     # deletes screenshot folder
